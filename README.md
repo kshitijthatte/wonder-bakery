@@ -1,3 +1,3 @@
-## E-Commerce Backend
+## Wonder Bakery
 
-This folder contains the Mock Backend created for E-Commerce App. It contains different API end-points and database configuration for building E-Commerce; so that you can focus on building Frontend.
+Wonder Bakery is an e-commerce bakery store app to get every baked desert that you crave.
