@@ -46,7 +46,6 @@
 .best-selling .card,
 .reviews .card {
   justify-self: center;
-  /* min-width: 30vw; */
 }
 
 .best-selling .card .card-actions {
