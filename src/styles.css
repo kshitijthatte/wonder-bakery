@@ -1,0 +1,33 @@
+@import url(https://iceberg-ui.netlify.app/styles.css);
+
+.nav-fixed-adjust {
+  margin-top: 4rem;
+}
+
+a.nav-section {
+  color: var(--white);
+}
+
+.divider {
+  border: none;
+  border-bottom: 1px solid var(--light-grey);
+}
+
+.nav-fixed {
+  z-index: 5;
+}
+
+.footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+}
+.footer li {
+  list-style: none;
+}
+
+.footer li a {
+  color: var(--white);
+}
