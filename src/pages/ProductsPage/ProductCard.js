@@ -1,20 +1,16 @@
-const ProductCard = () => {
+const ProductCard = ({ product: { title, categoryName, imgURL, price } }) => {
   return (
     <div className="card product-card">
-      <img
-        className="card-img"
-        src="https://source.unsplash.com/LDnmyOaA-ew"
-        alt="cake-img"
-      />
-
+      <img className="card-img" src={imgURL} alt={title} />
       <a href="/cakes/chocolatecake.html" className="card-title">
-        Chocolate Cake
+        {title.length < 18 ? title : title.slice(0, 18) + "..."}
       </a>
+      <p className="card-subtitle">{categoryName.slice(0, -1)}</p>
       <a
         href="/cakes/chocolatecake.html"
         className="card-description product-price text-md"
       >
-        <strong className=""> ₹890 </strong>
+        <strong> ₹{price} </strong>
       </a>
       <div className="card-actions">
         <button className="btn btn-sm btn-transparent">Add to Cart</button>
