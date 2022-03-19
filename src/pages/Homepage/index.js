@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./styles.css";
 import Footer from "../../components/Footer";
 import BestSelling from "./BestSelling";
@@ -63,7 +64,8 @@ const Homepage = () => {
           <div className="landing-actions">
             <h1>Wonder Bakery</h1>
             <p className="text-md">Fresh baked goods made with love</p>
-            <button className="btn btn-primary">Order Now</button>
+            {/* <button className="btn btn-primary">Order Now</button> */}
+            <Link to="/products" className="btn btn-primary">Order Now</Link>
           </div>
         </div>
         <section className="homepage-section">

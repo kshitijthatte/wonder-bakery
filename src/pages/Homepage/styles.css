@@ -43,6 +43,12 @@
   border-radius: 4px;
 }
 
+.best-selling .card {
+  box-shadow: none;
+  border: 1px solid var(--light-grey);
+  width: 100%;
+}
+
 .best-selling .card,
 .reviews .card {
   justify-self: center;

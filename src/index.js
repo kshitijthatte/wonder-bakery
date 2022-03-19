@@ -12,8 +12,8 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="mock" element={<MockmanEs />} />
+        <Route path="/*" element={<App />} />
+        <Route path="/mock" element={<MockmanEs />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
