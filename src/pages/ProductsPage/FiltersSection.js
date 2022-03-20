@@ -61,7 +61,7 @@ const FiltersSection = ({ categories, filtersState, filtersDispatch }) => {
         <input
           type="range"
           className="slider"
-          min="0"
+          min="50"
           max="500"
           step="50"
           list="price"
@@ -74,9 +74,6 @@ const FiltersSection = ({ categories, filtersState, filtersDispatch }) => {
           }
         />
         <datalist id="price">
-          <option value="0" label="0">
-            0
-          </option>
           <option value="50"></option>
           <option value="100"></option>
           <option value="150"></option>
