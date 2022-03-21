@@ -9,7 +9,7 @@ import {
   getPriceFilteredProducts,
   getRatingFilteredProducts,
   getSortedProducts,
-} from "../../helpers/filterFunctions";
+} from "../../utils/filterFunctions";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
