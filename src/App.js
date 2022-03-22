@@ -3,14 +3,26 @@ import { Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Navbar from "./components/Navbar";
 import ProductsPage from "./pages/ProductsPage";
+import LoginPage from "./pages/LoginPage";
+import { useAuth } from "./contexts/authContext";
+import SignupPage from "./pages/SignupPage";
 
 export default function App() {
+  const {
+    auth: { isAuthenticated },
+  } = useAuth();
   return (
     <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/products" element={<ProductsPage />} />
+        {!isAuthenticated && (
+          <>
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+          </>
+        )}
         <Route
           path="*"
           element={

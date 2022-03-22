@@ -1,0 +1,28 @@
+.authentication-container {
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.authentication-container .card {
+  box-shadow: none;
+  border: 1px solid var(--light-grey);
+  padding: 1rem;
+  min-width: 16rem;
+  width: 40%;
+  max-width: 28rem;
+}
+
+.input-group > * {
+  margin-bottom: 1rem;
+}
+.input-group > *:last-child {
+  margin-bottom: 0;
+}
+
+.name-input {
+  display: flex;
+  gap: 0.5rem;
+}
