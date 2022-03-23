@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -10,16 +12,16 @@ const Footer = () => {
           <h3>Site Links</h3>
           <ul>
             <li>
-              <a href="/">Products</a>
+              <Link to="/products">Products</Link>
             </li>
             <li>
-              <a href="/">Cart</a>
+              <Link to="/">Cart</Link>
             </li>
             <li>
-              <a href="/">Wishlist</a>
+              <Link to="/">Wishlist</Link>
             </li>
             <li>
-              <a href="/">Orders</a>
+              <Link to="/">Orders</Link>
             </li>
           </ul>
         </div>
@@ -27,7 +29,9 @@ const Footer = () => {
           <h3>Socials</h3>
           <ul>
             <li>
-              <a href="https://github.com/kshitijthatte/wonder-bakery">GitHub</a>
+              <a href="https://github.com/kshitijthatte/wonder-bakery">
+                GitHub
+              </a>
             </li>
             <li>
               <a href="https://twitter.com/KshitijThatte">Twitter</a>

@@ -1,6 +1,20 @@
-const ProductCard = ({
-  product: { title, categoryName, imgURL, price, rating },
-}) => {
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/authContext";
+import { useWishlist } from "../../contexts/wishlistContext";
+import { addToWishlist } from "../../services/wishlistServices";
+import { removeFromWishlist } from "../../services/wishlistServices";
+
+const ProductCard = ({ product }) => {
+  const { _id, title, categoryName, imgURL, price, rating } = product;
+  const {
+    auth: { isAuthenticated, token },
+  } = useAuth();
+  const { wishlist, setWishlist } = useWishlist();
+  const navigate = useNavigate();
+
+  const isInWishlist = productID =>
+    wishlist.find(wishlistProduct => wishlistProduct._id === productID);
+
   return (
     <div className="card card-badge product-card">
       <img className="card-img" src={imgURL} alt={title} />
@@ -21,9 +35,30 @@ const ProductCard = ({
       <div className="card-actions">
         <button className="btn btn-sm btn-transparent">Add to Cart</button>
         <div className="card-actions-right">
-          <button className="btn card-icon material-icons">
-            favorite_border
-          </button>
+          {isInWishlist(_id) ? (
+            <button
+              className="btn card-icon material-icons"
+              style={{ color: "red" }}
+              onClick={async () =>
+                setWishlist(await removeFromWishlist(token, _id))
+              }
+            >
+              favorite
+            </button>
+          ) : (
+            <button
+              className="btn card-icon material-icons "
+              onClick={async () => {
+                if (isAuthenticated) {
+                  setWishlist(await addToWishlist(token, product));
+                } else {
+                  navigate("/login");
+                }
+              }}
+            >
+              favorite_border
+            </button>
+          )}
         </div>
       </div>
     </div>

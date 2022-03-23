@@ -21,18 +21,22 @@ const LoginPage = () => {
         token: "",
       });
       setError("");
+
       const response = await axios.post(`/api/auth/login`, {
         email: inputValues.email,
         password: inputValues.password,
       });
+
       localStorage.setItem("AUTH_TOKEN", response.data.encodedToken);
       localStorage.setItem("WB_USER", JSON.stringify(response.data.foundUser));
+
       setAuth(a => ({
         ...a,
         isAuthenticated: true,
         user: response.data.foundUser,
         token: response.data.encodedToken,
       }));
+      
       navigate(`/`);
     } catch (error) {
       console.log(error);

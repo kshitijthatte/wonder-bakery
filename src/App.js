@@ -6,6 +6,8 @@ import ProductsPage from "./pages/ProductsPage";
 import LoginPage from "./pages/LoginPage";
 import { useAuth } from "./contexts/authContext";
 import SignupPage from "./pages/SignupPage";
+import Wishlist from "./pages/Wishlist";
+import PrivateRoute from "./components/PrivateRoute";
 
 export default function App() {
   const {
@@ -23,6 +25,14 @@ export default function App() {
             <Route path="/signup" element={<SignupPage />} />
           </>
         )}
+        <Route
+          path="/wishlist"
+          element={
+            <PrivateRoute>
+              <Wishlist />
+            </PrivateRoute>
+          }
+        />
         <Route
           path="*"
           element={

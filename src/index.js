@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { makeServer } from "./server";
 import Mockman from "mockman-js";
 import { AuthProvider } from "./contexts/authContext";
+import { WishlistProvider } from "./contexts/wishlistContext";
 
 // Call make Server
 makeServer();
@@ -17,7 +18,9 @@ ReactDOM.render(
           path="/*"
           element={
             <AuthProvider>
-              <App />
+              <WishlistProvider>
+                <App />
+              </WishlistProvider>
             </AuthProvider>
           }
         />
