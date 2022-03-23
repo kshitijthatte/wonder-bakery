@@ -27,9 +27,10 @@ const WishlistProvider = ({ children }) => {
           console.error("ERROR", error);
         }
       })();
+    } else {
+      setWishlist([]);
     }
   }, [isAuthenticated, token]);
-
   return (
     <WishlistContext.Provider value={{ wishlist, setWishlist }}>
       {children}
