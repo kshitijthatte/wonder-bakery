@@ -64,7 +64,9 @@ const Homepage = () => {
           <div className="landing-actions">
             <h1>Wonder Bakery</h1>
             <p className="text-md">Fresh baked goods made with love</p>
-            <Link to="/products" className="btn btn-primary">Order Now</Link>
+            <Link to="/products" className="btn btn-primary">
+              Order Now
+            </Link>
           </div>
         </div>
         <section className="homepage-section">
@@ -78,16 +80,16 @@ const Homepage = () => {
         <section className="homepage-section">
           <h2>Hot Selling Items</h2>
           <div className="grid grid-col-3 best-selling">
-            {bestSellingItems.map(({ itemName, imgURL }) => (
-              <BestSelling itemName={itemName} imgURL={imgURL} />
+            {bestSellingItems.map(({ id, itemName, imgURL }) => (
+              <BestSelling key={id} itemName={itemName} imgURL={imgURL} />
             ))}
           </div>
         </section>
         <section className="homepage-section">
           <h2>Hear From Our Customers</h2>
           <div className="grid grid-col-3 reviews">
-            {reviews.map(({ review, author }) => (
-              <Review review={review} author={author} />
+            {reviews.map(({ id, review, author }) => (
+              <Review key={id} review={review} author={author} />
             ))}
           </div>
         </section>

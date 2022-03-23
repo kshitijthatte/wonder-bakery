@@ -1,34 +1,17 @@
+import { useWishlist } from "../../contexts/wishlistContext";
 import "./styles.css";
+import WishlistProductCard from "./WishlistProductCard";
 
 const Wishlist = () => {
+  const { wishlist } = useWishlist();
   return (
-    <main class="nav-fixed-adjust">
-      <h1 class="text-center">My Wishlist (2)</h1>
-      <div class="cart-container">
-        <div class="cart-products">
-          <div class="card">
-            <div class="card-horizontal">
-              <img
-                className="card-img"
-                src={"https://source.unsplash.com/LDnmyOaA-ew"}
-                alt={""}
-              />
-              <div class="card-content">
-                <div class="card-title">Chocolate Cake</div>
-                <div class="card-subtitle">
-                  <strong> ₹890 </strong>
-                </div>
-                <div className="card-actions">
-                  <button className="btn btn-sm btn-primary">
-                    Add to Cart
-                  </button>
-                  <button className="btn card-icon material-icons">
-                    favorite
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+    <main className="nav-fixed-adjust">
+      <h1 className="text-center">My Wishlist ({wishlist.length})</h1>
+      <div className="cart-container">
+        <div className="cart-products">
+          {wishlist.map(product => (
+            <WishlistProductCard key={product.id} product={product} />
+          ))}
         </div>
       </div>
     </main>

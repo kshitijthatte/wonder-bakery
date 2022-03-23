@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/authContext";
+import { useWishlist } from "../contexts/wishlistContext";
 import signoutHandler from "../services/signoutHandler";
 
 const Navbar = () => {
@@ -7,8 +8,9 @@ const Navbar = () => {
     auth: { isAuthenticated, user },
     setAuth,
   } = useAuth();
-
+  const { wishlist } = useWishlist();
   const navigate = useNavigate();
+
   return (
     <nav className="nav nav-fixed">
       <NavLink className="nav-section" to="/">
@@ -28,8 +30,16 @@ const Navbar = () => {
               <span className="material-icons"> person </span>
               Hi, {user.firstName}
             </NavLink>
-            <NavLink to="/wishlist" className="btn btn-primary btn-sm btn-icon">
-              <span className="material-icons"> favorite </span>
+            <NavLink
+              to="/wishlist"
+              className="btn btn-primary btn-sm btn-icon badge-container"
+            >
+              <div className=" badge-container">
+                <span className="material-icons">favorite</span>
+                {wishlist.length > 0 && (
+                  <div class="badge bg-red">{wishlist.length}</div>
+                )}
+              </div>
             </NavLink>
             <NavLink to="/cart" className="btn btn-primary btn-sm btn-icon">
               <span className="material-icons"> shopping_cart </span>
