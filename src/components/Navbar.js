@@ -28,6 +28,12 @@ const Navbar = () => {
               <span className="material-icons"> person </span>
               Hi, {user.firstName}
             </NavLink>
+            <NavLink to="/wishlist" className="btn btn-primary btn-sm btn-icon">
+              <span className="material-icons"> favorite </span>
+            </NavLink>
+            <NavLink to="/cart" className="btn btn-primary btn-sm btn-icon">
+              <span className="material-icons"> shopping_cart </span>
+            </NavLink>
             <button
               className="btn btn-primary btn-sm btn-icon"
               onClick={() => signoutHandler(setAuth, navigate)}
@@ -36,10 +42,6 @@ const Navbar = () => {
             </button>
           </>
         )}
-        {/* <a className="btn btn-primary btn-sm btn-icon" href="/">
-          <span className="material-icons"> shopping_cart </span>
-          Cart
-        </a> */}
       </div>
     </nav>
   );
