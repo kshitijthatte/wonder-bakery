@@ -39,16 +39,18 @@ const ProductCard = ({ product }) => {
             <button
               className="btn card-icon material-icons"
               style={{ color: "red" }}
-              onClick={() => removeFromWishlist(token, _id, setWishlist)}
+              onClick={async () =>
+                setWishlist(await removeFromWishlist(token, _id))
+              }
             >
               favorite
             </button>
           ) : (
             <button
               className="btn card-icon material-icons "
-              onClick={() => {
+              onClick={async () => {
                 if (isAuthenticated) {
-                  addToWishlist(token, product, setWishlist);
+                  setWishlist(await addToWishlist(token, product));
                 } else {
                   navigate("/login");
                 }

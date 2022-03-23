@@ -24,7 +24,7 @@ const WishlistProductCard = ({
             <button
               className="btn card-icon material-icons"
               style={{ color: "red" }}
-              onClick={() => removeFromWishlist(token, _id, setWishlist)}
+              onClick={() => setWishlist(removeFromWishlist(token, _id))}
             >
               favorite
             </button>
