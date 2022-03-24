@@ -60,7 +60,7 @@
   border: 1px solid var(--light-grey);
   padding: 1rem;
 }
-.price-details .title {
+.price-details-title {
   display: flex;
   justify-content: space-between;
   padding: 1rem 0;
