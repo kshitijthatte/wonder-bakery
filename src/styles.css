@@ -8,6 +8,10 @@ a.nav-section {
   color: var(--white);
 }
 
+.nav-fixed-adjust a {
+  text-decoration: none;
+}
+
 .divider {
   border: none;
   border-bottom: 1px solid var(--light-grey);
