@@ -79,6 +79,10 @@
   margin: 0.5rem 0;
   padding: 0.5rem;
 }
+.product-card .btn-primary {
+  margin-left: 0.5rem;
+  text-transform: uppercase;
+}
 .product-card .product-price {
   padding: 0.5rem 1rem;
 }

@@ -6,6 +6,7 @@ import { makeServer } from "./server";
 import Mockman from "mockman-js";
 import { AuthProvider } from "./contexts/authContext";
 import { WishlistProvider } from "./contexts/wishlistContext";
+import { CartProvider } from "./contexts/cartContext";
 
 // Call make Server
 makeServer();
@@ -19,7 +20,9 @@ ReactDOM.render(
           element={
             <AuthProvider>
               <WishlistProvider>
-                <App />
+                <CartProvider>
+                  <App />
+                </CartProvider>
               </WishlistProvider>
             </AuthProvider>
           }

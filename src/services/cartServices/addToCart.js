@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const addToWishlist = async (token, product) => {
+const addToCart = async (token, product) => {
   try {
     const response = await axios.post(
-      "/api/user/wishlist",
+      "/api/user/cart",
       { product },
       {
         headers: {
@@ -11,10 +11,10 @@ const addToWishlist = async (token, product) => {
         },
       }
     );
-    return response.data.wishlist;
+    return response.data.cart;
   } catch (error) {
     console.error("ERROR", error);
     return error;
   }
 };
-export { addToWishlist };
+export { addToCart };

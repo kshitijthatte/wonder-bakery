@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/authContext";
+import { useCart } from "../contexts/cartContext";
 import { useWishlist } from "../contexts/wishlistContext";
 import signoutHandler from "../services/signoutHandler";
 
@@ -9,6 +10,7 @@ const Navbar = () => {
     setAuth,
   } = useAuth();
   const { wishlist } = useWishlist();
+  const { cart } = useCart();
   const navigate = useNavigate();
 
   return (
@@ -42,7 +44,12 @@ const Navbar = () => {
               </div>
             </NavLink>
             <NavLink to="/cart" className="btn btn-primary btn-sm btn-icon">
-              <span className="material-icons"> shopping_cart </span>
+              <div className=" badge-container">
+                <span className="material-icons">shopping_cart</span>
+                {cart.length > 0 && (
+                  <div className="badge bg-red">{cart.length}</div>
+                )}
+              </div>
             </NavLink>
             <button
               className="btn btn-primary btn-sm btn-icon"
