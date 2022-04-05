@@ -1,8 +1,6 @@
-import { useReducer } from "react";
 import "./styles.css";
 import FiltersSection from "./FiltersSection";
 import ProductCard from "./ProductCard";
-import { filterReducer } from "../../reducers/filterReducer";
 import {
   getCategoryFilteredProducts,
   getPriceFilteredProducts,
@@ -10,22 +8,13 @@ import {
   getSortedProducts,
 } from "../../utils/filterFunctions";
 import { useProducts } from "../../contexts/productsContext";
+import { useFilters } from "../../contexts/filtersContext";
 
 const ProductsPage = () => {
-  const { products, categories } = useProducts();
-
-  const [filtersState, filtersDispatch] = useReducer(filterReducer, {
-    sortBy: "POPULARITY",
-    price: "500",
-    categories: {
-      Cakes: false,
-      Cookies: false,
-      Doughnuts: false,
-      Breads: false,
-    },
-    rating: "1",
-  });
-  const { sortBy, price, categories: categoriesState, rating } = filtersState;
+  const { products } = useProducts();
+  const { filters } = useFilters();
+  const { sortBy, price, categories: categoriesState, rating } = filters;
+  
   const categoryfilteredProducts = getCategoryFilteredProducts(
     products,
     categoriesState
@@ -43,11 +32,7 @@ const ProductsPage = () => {
 
   return (
     <main className="nav-fixed-adjust products-container">
-      <FiltersSection
-        categories={categories}
-        filtersState={filtersState}
-        filtersDispatch={filtersDispatch}
-      />
+      <FiltersSection />
       <section className="products">
         <div className="grid grid-col-4">
           {sortedProducts.length > 0 ? (
