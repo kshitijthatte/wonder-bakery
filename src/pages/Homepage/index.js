@@ -6,6 +6,7 @@ import Footer from "../../components/Footer";
 import BestSelling from "./BestSelling";
 import Category from "./Category";
 import Review from "./Review";
+import { useProducts } from "../../contexts/productsContext";
 
 const reviews = [
   {
@@ -26,26 +27,11 @@ can't beat the prices and supporting local! Order ASAP!`,
   },
 ];
 
-const bestSellingItems = [
-  {
-    itemName: "Glazed Doughnuts",
-    imgURL: "https://source.unsplash.com/DmK5aEw6Tmc",
-    id: 1,
-  },
-  {
-    itemName: "Chocochip Cookies",
-    imgURL: "https://source.unsplash.com/04yMqTmUeHQ",
-    id: 2,
-  },
-  {
-    itemName: "Mocha Cupcake",
-    imgURL: "https://source.unsplash.com/B6kBrzkl3YQ",
-    id: 3,
-  },
-];
-
 const Homepage = () => {
   const [categories, setCategories] = useState([]);
+  const { products } = useProducts();
+  const bestSellingItems = products.slice(0, 3);
+
   useEffect(() => {
     (async () => {
       try {
@@ -80,8 +66,8 @@ const Homepage = () => {
         <section className="homepage-section">
           <h2>Hot Selling Items</h2>
           <div className="grid grid-col-3 best-selling">
-            {bestSellingItems.map(({ id, itemName, imgURL }) => (
-              <BestSelling key={id} itemName={itemName} imgURL={imgURL} />
+            {bestSellingItems.map(product => (
+              <BestSelling key={product._id} product={product} />
             ))}
           </div>
         </section>
