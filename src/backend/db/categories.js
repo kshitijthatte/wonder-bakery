@@ -23,7 +23,7 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "Bread",
+    categoryName: "Breads",
     imgURL: "https://source.unsplash.com/zYsB2mezSnA",
   },
 ];
