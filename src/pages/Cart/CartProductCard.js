@@ -1,13 +1,18 @@
 import { useAuth } from "../../contexts/authContext";
 import { useCart } from "../../contexts/cartContext";
+import { useWishlist } from "../../contexts/wishlistContext";
 import { removeFromCart, updateQtyInCart } from "../../services/cartServices";
+import { addToWishlist } from "../../services/wishlistServices";
 
 const CartProductCard = ({ product }) => {
   const { _id, title, categoryName, imgURL, price, qty } = product;
   const { setCart } = useCart();
+  const { wishlist, setWishlist } = useWishlist();
   const {
     auth: { token },
   } = useAuth();
+  const isInWishlist = productID =>
+    wishlist.find(wishlistProduct => wishlistProduct._id === productID);
   return (
     <div className="card">
       <div className="card-horizontal">
@@ -49,6 +54,20 @@ const CartProductCard = ({ product }) => {
         >
           Remove From Cart
         </button>
+
+        {
+          !isInWishlist(_id) && (
+            <button
+              className="btn btn-sm btn-transparent"
+              onClick={async () => {
+                setCart(await removeFromCart(token, _id));
+                setWishlist(await addToWishlist(token, product));
+              }}
+            >
+              Move to Wishlist
+            </button>
+          )
+        }
       </div>
     </div>
   );
