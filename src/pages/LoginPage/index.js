@@ -73,9 +73,9 @@ const LoginPage = () => {
           >
             Log In
           </button>
-          <a className="text-description text-center" href="/">
+          <Link className="text-description text-center" to="/">
             Forgot password?
-          </a>
+          </Link>
 
           <hr className="divider" />
           <Link className="btn outline-primary text-center" to="/signup">
