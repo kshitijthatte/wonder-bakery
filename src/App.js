@@ -9,6 +9,7 @@ import SignupPage from "./pages/SignupPage";
 import Wishlist from "./pages/Wishlist";
 import PrivateRoute from "./components/PrivateRoute";
 import Cart from "./pages/Cart";
+import UserProfilePage from "./pages/UserProfilePage";
 
 export default function App() {
   const {
@@ -39,6 +40,14 @@ export default function App() {
           element={
             <PrivateRoute>
               <Cart />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/user"
+          element={
+            <PrivateRoute>
+              <UserProfilePage />
             </PrivateRoute>
           }
         />
