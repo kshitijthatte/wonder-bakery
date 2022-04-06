@@ -38,6 +38,10 @@
   justify-items: center;
 }
 
+.categories .card {
+  cursor: pointer;
+}
+
 .category-img {
   height: 100%;
   border-radius: 4px;

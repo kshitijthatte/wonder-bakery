@@ -1,5 +1,11 @@
-const FiltersSection = ({ categories, filtersState, filtersDispatch }) => {
-  const { sortBy, price, categories: categoriesState, rating } = filtersState;
+import { useFilters } from "../../contexts/filtersContext";
+import { useProducts } from "../../contexts/productsContext";
+
+const FiltersSection = () => {
+  const { categories } = useProducts();
+  const { filters, filtersDispatch } = useFilters();
+  const { sortBy, price, categories: categoriesState, rating } = filters;
+
   return (
     <aside className="filters">
       <div className="sticky-container">
