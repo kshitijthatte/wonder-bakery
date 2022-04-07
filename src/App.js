@@ -11,6 +11,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Cart from "./pages/Cart";
 import UserProfilePage from "./pages/UserProfilePage";
 import SingleProductPage from "./pages/SingleProductPage";
+import CheckoutPage from "./pages/CheckoutPage";
 
 export default function App() {
   const {
@@ -42,6 +43,14 @@ export default function App() {
           element={
             <PrivateRoute>
               <Cart />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <PrivateRoute>
+              <CheckoutPage />
             </PrivateRoute>
           }
         />
