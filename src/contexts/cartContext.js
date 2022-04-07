@@ -31,8 +31,14 @@ const CartProvider = ({ children }) => {
       setCart([]);
     }
   }, [isAuthenticated, token]);
+
+  const getTotalCartPrice = cart.reduce(
+    (acc, { price, qty }) => acc + price * qty,
+    0
+  );
+
   return (
-    <CartContext.Provider value={{ cart, setCart }}>
+    <CartContext.Provider value={{ cart, getTotalCartPrice, setCart }}>
       {children}
     </CartContext.Provider>
   );

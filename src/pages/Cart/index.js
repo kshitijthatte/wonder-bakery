@@ -1,12 +1,10 @@
+import { Link } from "react-router-dom";
 import { useCart } from "../../contexts/cartContext";
 import CartProductCard from "./CartProductCard";
 
 const Cart = () => {
-  const { cart } = useCart();
-  const getTotalPrice = cart.reduce(
-    (acc, { price, qty }) => acc + price * qty,
-    0
-  );
+  const { cart, getTotalCartPrice } = useCart();
+
   return (
     <main className="nav-fixed-adjust">
       {cart.length > 0 ? (
@@ -19,17 +17,19 @@ const Cart = () => {
 
           <div className="price-details">
             <div className="price-details-title">
-              Price ({cart.length} items) <span>₹{getTotalPrice}</span>
+              Price ({cart.length} items) <span>₹{getTotalCartPrice}</span>
             </div>
             <div className="price-details-title">
               Delivery Charges <span className="text-green">FREE</span>
             </div>
             <hr className="divider" />
             <strong className="price-details-title">
-              Total Amount <span>₹{getTotalPrice}</span>
+              Total Amount <span>₹{getTotalCartPrice}</span>
             </strong>
             <hr className="divider" />
-            <button className="btn btn-primary order-btn">Place Order</button>
+            <Link to="/checkout" className="btn btn-primary order-btn">
+              Place Order
+            </Link>
           </div>
         </div>
       ) : (

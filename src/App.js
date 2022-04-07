@@ -9,6 +9,10 @@ import SignupPage from "./pages/SignupPage";
 import Wishlist from "./pages/Wishlist";
 import PrivateRoute from "./components/PrivateRoute";
 import Cart from "./pages/Cart";
+import UserProfilePage from "./pages/UserProfilePage";
+import SingleProductPage from "./pages/SingleProductPage";
+import CheckoutPage from "./pages/CheckoutPage";
+import NotFound from "./pages/NotFound/404";
 
 export default function App() {
   const {
@@ -20,6 +24,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/products" element={<ProductsPage />} />
+        <Route path="/product/:productID" element={<SingleProductPage />} />
         {!isAuthenticated && (
           <>
             <Route path="/login" element={<LoginPage />} />
@@ -43,13 +48,22 @@ export default function App() {
           }
         />
         <Route
-          path="*"
+          path="/checkout"
           element={
-            <main className="nav-fixed-adjust" style={{ padding: "1rem" }}>
-              <p>There's nothing here!</p>
-            </main>
+            <PrivateRoute>
+              <CheckoutPage />
+            </PrivateRoute>
           }
         />
+        <Route
+          path="/user"
+          element={
+            <PrivateRoute>
+              <UserProfilePage />
+            </PrivateRoute>
+          }
+        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
