@@ -10,6 +10,7 @@ import Wishlist from "./pages/Wishlist";
 import PrivateRoute from "./components/PrivateRoute";
 import Cart from "./pages/Cart";
 import UserProfilePage from "./pages/UserProfilePage";
+import SingleProductPage from "./pages/SingleProductPage";
 
 export default function App() {
   const {
@@ -21,6 +22,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/products" element={<ProductsPage />} />
+        <Route path="/product/:productID" element={<SingleProductPage />} />
         {!isAuthenticated && (
           <>
             <Route path="/login" element={<LoginPage />} />

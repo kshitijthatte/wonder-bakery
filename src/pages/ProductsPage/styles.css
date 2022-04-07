@@ -90,6 +90,9 @@
 .product-card .card-img {
   height: 16rem;
 }
+.product-card .card-img-link {
+  display: inherit;
+}
 
 .grid {
   height: initial;
