@@ -12,6 +12,7 @@ import Cart from "./pages/Cart";
 import UserProfilePage from "./pages/UserProfilePage";
 import SingleProductPage from "./pages/SingleProductPage";
 import CheckoutPage from "./pages/CheckoutPage";
+import NotFound from "./pages/NotFound/404";
 
 export default function App() {
   const {
@@ -62,14 +63,7 @@ export default function App() {
             </PrivateRoute>
           }
         />
-        <Route
-          path="*"
-          element={
-            <main className="nav-fixed-adjust" style={{ padding: "1rem" }}>
-              <p>There's nothing here!</p>
-            </main>
-          }
-        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
